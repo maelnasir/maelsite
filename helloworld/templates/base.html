@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Bungee&family=Bungee+Shade&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Quicksand:wght@100;300;400;600;700&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/helloworld.css' %}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<body>
+    <a class="hwAdminLink" href="{% url 'admin:index' %}" target="_blank">Admin</a>
+    <section>
+        <h1 class="animate__animated animate__bounce">{{ title }}</h1>
+        <ul class="navHW">
+            <li><a href="{% url 'index' %}" class="{% if request.resolver_match.view_name == 'index' %}navActive{% endif %}">Home</a></li>
+            <li><a href="{% url 'portfolio' %}" class="{% if request.resolver_match.view_name == 'portfolio' %}navActive{% endif %}">Portfolio</a></li>
+            <li><a href="{% url 'contact' %}" class="{% if request.resolver_match.view_name == 'contact' %}navActive{% endif %}">Contact Me</a></li>
+        </ul>
+        {% if request.resolver_match.view_name == 'index' %}
+            <a href="{% url 'admin:index' %}" target="_blank"><img src="{% static 'img/rx782-desaturated.png' %}" class="hwRX782 animate__animated animate__zoomIn" /></a>
+        {% endif %}
+        <p class="animate__animated animate__bounceIn">{{ text }}</p>
+        {% if request.resolver_match.view_name == 'portfolio' %}
+                {% block content %}
+                <article class="hwPortfolio">
+                {% for x in data %}
+                    <div class="animate__animated animate__fadeInUp">
+                        <p><strong>Project &#8594;</strong> {{ x.project }}</p>
+                        <p><strong>Client &#8594;</strong> {{ x.client }}</p>
+                        <p><strong>Duration &#8594;</strong> {{ x.startDate }} to {{ x.endDate }}</p>
+                        <p><strong>Description &#8594;</strong> {{ x.description }}</p>
+                    </div>
+                    {% endfor %}
+                </article>
+                {% endblock content %}
+            {% else %}
+        {% endif %}
+        {% if request.resolver_match.view_name == 'contact' %}
+        <form method="post" novalidate autocomplete="off" class="animate__animated animate__fadeInUp">
+        {% csrf_token %}
+        {% if created %}
+            <h1>Thanks for the enquiry! I'll get back to you asap!</h1>
+        {% else %}
+            {% if notcreated %}
+                <h1>Please complete the form!</h1>
+            {% else %}
+                <h1>Fill in the form!</h1>
+            {% endif %}
+        {% endif %}
+            <table>
+                {{ form }}
+            </table>
+            <input type="submit" name="submit" value="SEND" class="hwButton">
+        </form>
+        {% endif %}
+    </section>
+    <footer>&#169; {% now "Y" %} Mak Itik. All rights reserved.</footer>
+</body>
+</html>
