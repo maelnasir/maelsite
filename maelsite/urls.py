@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.shortcuts import redirect
+from maelapp.views import index
 
 urlpatterns = [
-    path('polls/', include('polls.urls')),
-    path('helloworld/', include('helloworld.urls')),
+    path('', lambda req: redirect(index)), # redirect home to maelapp
+    path('maelapp/', include('maelapp.urls')),
     path('admin/', admin.site.urls),
 ]

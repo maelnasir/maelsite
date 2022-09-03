@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Bungee&family=Bungee+Shade&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Quicksand:wght@100;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/maelapp.css' %}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<body>
+    <a class="maAdminLink" href="{% url 'admin:index' %}" target="_blank">Admin</a>
+    <section>
+        <h1 class="animate__animated animate__bounce">{{ title }}</h1>
+        <ul class="navMA">
+            <li><a href="{% url 'index' %}" class="{% if request.resolver_match.view_name == 'index' %}navActive{% endif %}">Home</a></li>
+            <li><a href="{% url 'portfolio' %}" class="{% if request.resolver_match.view_name == 'portfolio' %}navActive{% endif %}">Portfolio</a></li>
+            <li><a href="{% url 'contact' %}" class="{% if request.resolver_match.view_name == 'contact' %}navActive{% endif %}">Contact Me</a></li>
+        </ul>
+        {% include 'base_title.html' %}
+        {% if request.resolver_match.view_name == 'index' %}
+            {% block index %}{% endblock %}
+        {% elif request.resolver_match.view_name == 'portfolio' %}
+            {% block portfolio %}{% endblock %}
+        {% elif request.resolver_match.view_name == 'contact' %}
+            {% block contact %}{% endblock %}
+        {% endif %}
+    </section>
+    <footer>&#169; {% now "Y" %} School of Mak Itik. All rights reserved.</footer>
+</body>
+</html>
