@@ -1,6 +1,15 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="1024">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1.0, user-scalable=no">
+	<meta name="theme-color" content="#131313" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Bungee&family=Bungee+Shade&display=swap" rel="stylesheet">
@@ -25,6 +34,6 @@
             {% block contact %}{% endblock %}
         {% endif %}
     </section>
-    <footer>&#169; {% now "Y" %} School of Mak Itik. All rights reserved.</footer>
+    <footer class="animate__animated animate__fadeIn">&#169; {% now "Y" %} School of Mak Itik. All rights reserved.</footer>
 </body>
 </html>
