@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="1024">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1.0, user-scalable=no">
+	<meta name="theme-color" content="#131313" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Bungee&family=Bungee+Shade&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Quicksand:wght@100;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/maelapp.css' %}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<body>
+    <a class="maAdminLink" href="{% url 'admin:index' %}" target="_blank">Admin</a>
+    <section>
+        <h1 class="animate__animated animate__bounce">{{ title }}</h1>
+        <ul class="navMA">
+            <li><a href="{% url 'index' %}" class="{% if request.resolver_match.view_name == 'index' %}navActive{% endif %}">Home</a></li>
+            <li><a href="{% url 'portfolio' %}" class="{% if request.resolver_match.view_name == 'portfolio' %}navActive{% endif %}">Portfolio</a></li>
+            <li><a href="{% url 'contact' %}" class="{% if request.resolver_match.view_name == 'contact' %}navActive{% endif %}">Contact Me</a></li>
+        </ul>
+        {% include 'base_title.html' %}
+        {% if request.resolver_match.view_name == 'index' %}
+            {% block index %}{% endblock %}
+        {% elif request.resolver_match.view_name == 'portfolio' %}
+            {% block portfolio %}{% endblock %}
+        {% elif request.resolver_match.view_name == 'contact' %}
+            {% block contact %}{% endblock %}
+        {% endif %}
+    </section>
+    <footer class="animate__animated animate__fadeIn">&#169; {% now "Y" %} School of Mak Itik. All rights reserved.</footer>
+</body>
+</html>

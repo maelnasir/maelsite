@@ -1,8 +1,6 @@
 from django.db import models
 from datetime import date
 
-# Create your models here.
-
 class Portfolio(models.Model):
     project = models.CharField(max_length=255)
     client = models.CharField(max_length=255)

@@ -26,8 +26,15 @@ SECRET_KEY = 'django-insecure-*%i4b4_(sdu9qep$i_gwm)h4f*2#yn1i81fo(%vi%z(6z2^!un
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.68.102']
+ALLOWED_HOSTS = [
+    'localhost',
+    '192.168.68.102',
+]
 
+# mael defined functions
+def dirBuild(folder):
+    builtDir = os.path.join(BASE_DIR, folder)
+    return builtDir
 
 # Application definition
 
@@ -56,7 +63,7 @@ ROOT_URLCONF = 'maelsite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [dirBuild('templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,7 +85,7 @@ WSGI_APPLICATION = 'maelsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': dirBuild('db.sqlite3'),
     }
 }
 
@@ -119,7 +126,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    dirBuild('static'),
 ]
 
 # Default primary key field type
