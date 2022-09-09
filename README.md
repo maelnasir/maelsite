@@ -1,5 +1,5 @@
 # maelsite
-Starter Django test project. 
+A Django project example. 
 
 ## maelapp
 This app contains 3 pages: Home, Portfolio & Contact
