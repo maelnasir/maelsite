@@ -8,7 +8,7 @@ msgContactUs = "Let's connect!"
 
 def index(request):
     frontImages = UploadImage.objects.all()
-    context = {'title':'Mael App!','text':msgIndex, 'frontImage':frontImages}
+    context = {'title':'Itsumi Mael!','text':msgIndex, 'frontImage':frontImages}
     return render(request, "base_content.html", context)
 
 def portfolio(request):
