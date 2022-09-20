@@ -2,23 +2,24 @@ from django.shortcuts import render
 from maelapp.forms import FeedbackForm
 from maelapp.models import Portfolio, UploadImage
 
+siteTitle = "Itsumi Mael!"
 msgIndex = "Hey guys! I'm learning Django!"
 msgPortfolio = "A list of my most recent projects."
 msgContactUs = "Let's connect!"
 
 def index(request):
     frontImages = UploadImage.objects.all()
-    context = {'title':'Itsumi Mael!','text':msgIndex, 'frontImage':frontImages}
+    context = {'siteTitle':siteTitle,'pageTitle':'Itsumi Mael!','text':msgIndex, 'frontImage':frontImages}
     return render(request, "base_content.html", context)
 
 def portfolio(request):
     # get all records from Portfolio model
     porfolioData = Portfolio.objects.all().order_by('-endDate') # descending order by id
-    context = {'title':'Portfolio','text':msgPortfolio,'data':porfolioData} 
+    context = {'siteTitle':siteTitle,'pageTitle':'Portfolio','text':msgPortfolio,'data':porfolioData} 
     return render(request, "base_content.html", context)
 
 def contact(request):
-    context = {'title':'Contact Me', 'text':msgContactUs} # establish basic context
+    context = {'siteTitle':siteTitle,'pageTitle':'Contact Me','text':msgContactUs} # establish basic context
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
         if form.is_valid():
