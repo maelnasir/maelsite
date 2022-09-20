@@ -3,11 +3,15 @@
 
 {% block index %}
         <div class="animate__animated animate__zoomIn">
-            <a href="{% url 'admin:index' %}" target="_blank"><img src="{% static 'img/rx782-desaturated.png' %}" class="maRX782" /></a>
+            {% for x in frontImage %}
+            <a href="{% url 'admin:index' %}" target="_blank">
+                <img src="{{ x.image.url }}" class="maRX782" />
+            </a>
             <h3>
                 Renpou Experimental Mobile Suit<br>
-                (RX-78-2)
+                ({{ x.caption }})
             </h3>
+            {% endfor %}
         </div>
 {% endblock index %}
 

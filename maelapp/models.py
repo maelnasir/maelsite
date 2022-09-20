@@ -22,3 +22,14 @@ class Feedback(models.Model):
     class Meta:
         verbose_name = "Response"
         verbose_name_plural = "Responses"
+
+class UploadImage(models.Model):  
+    caption = models.CharField(max_length=200)  
+    image = models.ImageField(upload_to='images')  
+
+    class Meta:
+        verbose_name = "Front Image"
+        verbose_name_plural = "Front Image"
+  
+    def __str__(self):  
+        return self.caption  

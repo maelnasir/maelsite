@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django import forms
 
-from maelapp.models import Feedback, Portfolio
+from maelapp.models import Feedback, Portfolio, UploadImage
 
 # define textareas for fields in Admin View - Portfolio & Feedback models
 class textareaFieldAdmin(admin.ModelAdmin):
@@ -13,3 +13,5 @@ class textareaFieldAdmin(admin.ModelAdmin):
 # register all related models with options
 admin.site.register(Feedback, textareaFieldAdmin)
 admin.site.register(Portfolio, textareaFieldAdmin)
+admin.site.register(UploadImage)
+
