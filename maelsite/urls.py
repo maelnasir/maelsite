@@ -21,8 +21,8 @@ from django.conf import settings
 from django.conf.urls.static import static  
 
 urlpatterns = [
-    path('', lambda req: redirect(index)), # redirect home to maelapp
-    path('maelapp/', include('maelapp.urls')),
+    #path('', lambda req: redirect(index)), # redirect home to maelapp
+    path('', include('maelapp.urls')),
     path('admin/', admin.site.urls),
 ]
 
