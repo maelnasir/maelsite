@@ -3,7 +3,7 @@ from maelapp.forms import FeedbackForm
 from maelapp.models import Portfolio, UploadImage
 
 siteTitle = "Itsumi Mael!"
-msgIndex = "Hey guys! I'm learning Django!"
+msgIndex = "Hey guys! Let's learn Django!"
 msgPortfolio = "A list of my most recent projects."
 msgContactUs = "Let's connect!"
 

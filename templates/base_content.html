@@ -3,7 +3,7 @@
 
 {% block index %}
         <p>This is a sample project used in the internal basic training for the Django web framework!</p>
-        <p>You can start learning now! <a href="{% static 'pdf/Django 101 - Basic Training.pdf' %}">Download the training slides!</a></p>
+        <p class="paraLearn">You can start learning now! <a href="{% static 'pdf/Django 101 - Basic Training.pdf' %}" target="_blank">Download the training slides!</a></p>
         <div class="animate__animated animate__zoomIn">
             {% for x in frontImage %}
             <a href="{% url 'admin:index' %}" target="_blank">
