@@ -4,7 +4,7 @@
 {% block index %}
         <p class="paraLearn">This website is a sample project made with the Django web framework.</p>
         <p class="paraLearn">You can start learning by following this basic training.</p>
-        <p>Download the <a href="{% static 'pdf/Django 101 - Basic Training.pdf' %}" target="_blank">Beginner's Guide</a> written by me!</p>
+        <p class="paraLearn">Download the <a href="{% static 'pdf/Django 101 - Basic Training.pdf' %}" target="_blank">Beginner's Guide</a> written by me!</p>
         <div class="animate__animated animate__zoomIn">
             {% for x in frontImage %}
             <a href="{% url 'admin:index' %}" target="_blank">
