@@ -17,7 +17,7 @@ ul.navMA li a, ul.navMA li a:visited { font-size: 20px; margin: 0 10px; color: #
 ul.navMA li a:hover { color: #666;}
 ul.navMA li a.navActive { color: #666; text-decoration: underline; }
 
-.maRX782 { display:block; max-height: 300px; margin:0 auto; }
+.maRX782 { display:block; max-height: 150px; margin:0 auto; }
 
 article.maPortfolio { width: 70%; margin: 0 auto; text-align: left; }
 article.maPortfolio div { border-bottom: 1px dotted #666; padding: 20px 0; }
