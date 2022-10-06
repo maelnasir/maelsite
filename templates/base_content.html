@@ -2,16 +2,14 @@
 {% load static %}
 
 {% block index %}
-        <p class="paraLearn">This is a sample project used in the internal basic training for the Django web framework!</p>
-        <p class="paraLearn">You can start learning now! <a href="{% static 'pdf/Django 101 - Basic Training.pdf' %}" target="_blank">Download the training slides!</a></p>
+        <p class="paraLearn">This website is a sample project made with the Django web framework.</p>
+        <p class="paraLearn">You can start learning by following this basic training.</p>
+        <p>Download the <a href="{% static 'pdf/Django 101 - Basic Training.pdf' %}" target="_blank">Beginner's Guide</a> written by me!</p>
         <div class="animate__animated animate__zoomIn">
             {% for x in frontImage %}
             <a href="{% url 'admin:index' %}" target="_blank">
                 <img src="{{ x.image.url }}" class="maRX782" />
             </a>
-            <h3>
-                ({{ x.caption }})
-            </h3>
             {% endfor %}
         </div>
 {% endblock index %}
